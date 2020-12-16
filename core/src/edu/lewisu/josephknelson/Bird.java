@@ -3,10 +3,12 @@ package edu.lewisu.josephknelson;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.audio.Music;
 
 public class Bird {
     int XCoord, YCoord; 
-    Texture ch = new Texture("./ch.png");
+    Texture ch = new Texture("./sprites/ch.png");
+    private Music flap = Gdx.audio.newMusic(Gdx.files.internal("./music/flap.mp3"));
 
     public int getXCoord() {
         return this.XCoord;
@@ -33,8 +35,10 @@ public class Bird {
     }
 
     public void handle(){
-        if(Gdx.input.isKeyPressed(Keys.SPACE)) {
+        if(Gdx.input.isKeyJustPressed(Keys.SPACE)) {
             this.YCoord += 10;
+            flap.setVolume(1f);
+            flap.play();
         }
     }
 

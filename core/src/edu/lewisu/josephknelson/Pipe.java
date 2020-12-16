@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 public class Pipe {
     int TX, TY, BX, BY;
 
-    Texture txtrUp = new Texture("./badlogic.jpg");
-    Texture txtrDown = new Texture("./badlogic.jpg");
+    Texture txtrUp = new Texture("./sprites/pipeUp.png");
+    Texture txtrDown = new Texture("./sprites/pipeDown.png");
 
     public int getTX() {
         return this.TX;
@@ -39,6 +39,7 @@ public class Pipe {
 
     public void setBY(int BY) {
         this.BY = BY;
+        setTY(BY + txtrUp.getHeight() + 80);
     }
 
     public Texture getTextureU(){
@@ -50,14 +51,14 @@ public class Pipe {
     }
 
     public void slide(){
-        setBX(-5);
-        setTX(-5);
+        setBX(-2);
+        setTX(-2);
     }
 
     public Pipe(int BY){
-        this.BX = 500;
+        this.BX = 300;
         this.BY = BY;
-        this.TX = 500;
-        this.TY = txtrUp.getHeight() + 100;
+        this.TX = 300;
+        this.TY = BY + txtrUp.getHeight() + 80;
     }
 }
